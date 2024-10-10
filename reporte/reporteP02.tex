@@ -1,0 +1,75 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{gray}{RGB}{240,240,240}
+\lstset{
+    language=Python,
+    backgroundcolor=\color{gray},
+    basicstyle=\footnotesize\ttfamily,
+    frame=single,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+    breaklines=true,
+    showstringspaces=false
+}
+
+\lstset{
+    language=SQL,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+}
+
+\usepackage{epsfig,graphicx}
+
+% Diseño
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{float}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage[square]{natbib}
+\usepackage{pgf-pie}
+\usepackage{cleveref}
+
+\usepackage{pgfplots}
+
+\usepackage{amsmath}
+
+% Encabezado
+\fancyhead[L]{\textit{Práctica 6: SQLin}}
+
+% Pie de página
+\fancyfoot[L]{\textit{Facultad de Ciencias, 2025-I}}
+\fancyfoot[R]{\textit{Criptografía y Seguridad}}
+
+%% Ruta de las imágenes
+\graphicspath{{resources/}}
+
+\begin{document}
+\input{portada.tex}
+
+\input{sections/schelling.tex}
+
+\bibliographystyle{plain}
+\bibliography{references.bib}
+
+\end{document}
