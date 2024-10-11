@@ -55,9 +55,9 @@ ask patches [
 	\begin{figure}[H]
     \centering
     \begin{tabular}{ccccc}
-        \setlength{\epsfxsize}{0.40\hsize} 
+        \setlength{\epsfxsize}{0.50\hsize} 
         \subfigure[]{\epsfbox{resources/termitas/07}} & 
-        \setlength{\epsfxsize}{0.40\hsize} 
+        \setlength{\epsfxsize}{0.50\hsize} 
         \subfigure[]{\epsfbox{resources/termitas/08}} 
  
     \end{tabular}
@@ -76,9 +76,9 @@ ask patches [
 			\begin{figure}[H]
     \centering
     \begin{tabular}{ccccc}
-        \setlength{\epsfxsize}{0.40\hsize} 
+        \setlength{\epsfxsize}{0.50\hsize} 
         \subfigure[]{\epsfbox{resources/termitas/09}} & 
-        \setlength{\epsfxsize}{0.40\hsize} 
+        \setlength{\epsfxsize}{0.50\hsize} 
         \subfigure[]{\epsfbox{resources/termitas/10}} 
  
     \end{tabular}
@@ -86,13 +86,71 @@ ask patches [
     \caption{(a) Comportamiento de la gráfica en 78,100 ticks cuando el valor de densidad es igual 37 y la población es 20. (b) cómo está implementado el plot.}
     \label{fig:002}
 	\end{figure}
-		
-		
-		
 	
 	\end{itemize}
 	
+	\item Extender el modelo considerando dos tipos de astillas de madera (por ejemplo, amarillas y cafés). La termita deja y recoge la astilla a partir del color del cúmulo. ¿cuántas pilas de astillas quedan al final? 
 	
+	Se modifica la función que asigna el color a los agentes, cuando es de tipo 1 es color café y si es 2 entonces es amarillo, quedaría de la siguiente manera:
+	
+\begin{verbatim}
+to colorea
+  if tipo = 1 [set pcolor 33]  
+  if tipo = 2 [set pcolor yellow] 
+end
+\end{verbatim}
+
+Y para la asignación se genera un número aleatorio dentro del setup:
+
+\begin{verbatim}
+	set tipo random 3;
+\end{verbatim}
+
+Dentro de buscar-madera ahora la termita verifica su tipo, la nueva versión de la función:
+
+\begin{verbatim}
+to buscar-madera
+  ifelse tipo != 0 [
+    set carga tipo
+    set tipo 0
+    set pcolor black
+    set color orange
+    forward 10
+    set estadoActual 1
+  ][
+    caminata-aleatoria
+  ]
+end\end{verbatim}
+
+En la siguiente página de exhibe una ejecución completa del programa, mostrando su historial en doce momentos diferentes donde el valor de densidad es igual a 30 y su población es 10; haciendo un conteo de las pilas de astillas quedaron en total 20. Esta extensión se puede consultar en el archivo 'Termitas-03.nlogo'. 
+
+
+\begin{figure}
+    \centering
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.3\hsize]{resources/termitas/11} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/12} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/13} \\
+        
+        \includegraphics[width=0.3\hsize]{resources/termitas/14} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/15} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/16} \\
+        
+        \includegraphics[width=0.3\hsize]{resources/termitas/17} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/18} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/19} \\
+        
+        \includegraphics[width=0.3\hsize]{resources/termitas/20} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/21} &
+        \includegraphics[width=0.3\hsize]{resources/termitas/22} \\
+    \end{tabular}
+\end{figure}
+
+
+	
+	
+	
+		
 	
 
 \end{enumerate}

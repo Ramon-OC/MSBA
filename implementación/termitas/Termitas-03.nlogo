@@ -8,7 +8,7 @@ to setup
   set-default-shape turtles "bug"
   ask patches [
     if random-float 100 < densidad [
-      set tipo 1
+      set tipo random 3;
       colorea
     ]
   ]
@@ -23,7 +23,8 @@ to setup
 end
 
 to colorea
-  if tipo = 1 [set pcolor 33]
+  if tipo = 1 [set pcolor 33]  ;
+  if tipo = 2 [set pcolor yellow] ;
 end
 
 to go
@@ -142,7 +143,7 @@ densidad
 densidad
 0
 100
-37.0
+30.0
 1
 1
 NIL
@@ -191,7 +192,7 @@ poblacion
 poblacion
 1
 20
-20.0
+10.0
 1
 1
 NIL
